@@ -1,10 +1,11 @@
 const DOMAIN = 'http://localhost:3000';
 const API_PATH = '/api/v1'
-// const api_key = 'ApiKey 588f3739f09eaa11425d135e96582ae53d3248dbb7ce7bcbd190489566a8932f'
+const api_key = 'ApiKey 588f3739f09eaa11425d135e96582ae53d3248dbb7ce7bcbd190489566a8932f'
 
 function getJwt(){
   return window.localStorage.getItem('jwt')
 }
+
 
 const Room = {
   getRooms() {
@@ -34,6 +35,19 @@ const Room = {
         body: JSON.stringify(attributes)
       }
     ).then(res => res.json())
+  },
+  postComment(id, attributes){
+    return fetch(
+      `${DOMAIN}${API_PATH}/rooms/${id}/comments`,
+      {
+        method: 'POST',
+        headers:{
+          'Content-Type': 'application/json',
+          'Authorization': `JWT ${getJwt()}`
+        },
+        body: JSON.stringify(attributes)
+      }
+    ).then(res => res.json())
   }
 }
 
@@ -53,4 +67,23 @@ const Token = {
 }
 
 
-export { Room,Token };
+const User = {
+  post(params){
+    return fetch(
+      `${DOMAIN}${API_PATH}/users`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `JWT ${getJwt()}`
+        },
+        body: JSON.stringify(params)
+      }
+    ).then(res=>res.json())
+  }
+}
+
+
+
+
+export { Room,Token,User };

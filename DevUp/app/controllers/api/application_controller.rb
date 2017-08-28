@@ -13,6 +13,7 @@ class Api::ApplicationController < ApplicationController
   end
 
   private
+  
   def authorization_header
     request.headers['AUTHORIZATION']
   end

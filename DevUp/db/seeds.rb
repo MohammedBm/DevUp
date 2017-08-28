@@ -18,7 +18,7 @@ parsed_tags = JSON.parse(tag_json)
 
 
 PASSWORD = '1q2w'
-User.create full_name: 'Jon SNow', username: 'KingInTheNorth', email: 'mb@w.cn', password: PASSWORD
+User.create full_name: 'Jon Snow', username: 'KingInTheNorth', email: 'mb@w.cn', password: PASSWORD
 
 i ||= 0;
 while i < 30 do

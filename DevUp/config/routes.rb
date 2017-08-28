@@ -6,6 +6,7 @@ Rails.application.routes.draw do
         resources :comments, only: %i[create destroy]
       end
       resources :tokens, only: [:create]
+      resources :users, only: %i[new show create index]
     end
   end
 

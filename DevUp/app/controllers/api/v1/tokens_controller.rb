@@ -1,4 +1,5 @@
 class Api::V1::TokensController < Api::ApplicationController
+
   def create
     # params = { ..., email: "js@winterfel.gov", password: "1q2w"}
     user = User.find_by(email: params[:email])
@@ -7,8 +8,8 @@ class Api::V1::TokensController < Api::ApplicationController
       render json: {
         jwt: encode_token({
           id: user.id,
-          firstName: user.full_name,
-          lastName: user.username
+          full_name: user.full_name,
+          username: user.username
         })
       }
     else
