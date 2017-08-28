@@ -72,7 +72,7 @@ class App extends Component {
             )
           }
         </nav>
-        <h1>GameUp</h1>
+        <h1>DevsUp</h1>
 
         <Switch>
           <Route exact path='/' component={RoomIndexPage} />
