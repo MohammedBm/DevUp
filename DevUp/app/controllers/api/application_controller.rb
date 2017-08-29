@@ -13,7 +13,6 @@ class Api::ApplicationController < ApplicationController
   end
 
   private
-  
   def authorization_header
     request.headers['AUTHORIZATION']
   end
@@ -38,6 +37,8 @@ class Api::ApplicationController < ApplicationController
       return nil if Time.at(payload[:exp]) < Time.now
       payload
     rescue JWT::DecodeError => error
+      logger.error error.message
+      logger.error error.backtrace.join("\n")
       {}
     end
   end

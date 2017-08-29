@@ -34,7 +34,7 @@ const Room = {
         },
         body: JSON.stringify(attributes)
       }
-    ).then(res => res.json())
+    ).then(res => res.json()) // { id: 2, title: "..."}
   },
   postComment(id, attributes){
     return fetch(
@@ -83,7 +83,34 @@ const User = {
   }
 }
 
+const Member ={
+  post(userId, roomId){
+    return fetch(
+      `${DOMAIN}${API_PATH}/room_users/`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `JWT ${getJwt()}`
+        },
+        body: JSON.stringify({user_id:userId, room_id:roomId})
+      }
+    ).then(res=>res.json())
+  },
+  delete(roomUserId){
+    return fetch(
+      `${DOMAIN}${API_PATH}/room_users/${roomUserId}`,
+      {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `JWT ${getJwt()}`
+        }
+      }
+    ).then(res=>res.json())
+  }
+}
 
 
 
-export { Room,Token,User };
+export { Room,Token,User,Member };

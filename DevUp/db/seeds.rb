@@ -21,7 +21,7 @@ PASSWORD = '1q2w'
 User.create full_name: 'Jon Snow', username: 'KingInTheNorth', email: 'mb@w.cn', password: PASSWORD
 
 i ||= 0;
-while i < 30 do
+while i < 100 do
  u = User.create(
     full_name: Faker::Name.name,
     username: Faker::LeagueOfLegends.champion,

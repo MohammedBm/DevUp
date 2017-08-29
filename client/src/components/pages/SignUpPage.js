@@ -3,9 +3,14 @@ import {Token,User} from '../../utls/requests';
 import SignUpForm from '../SignUpForm'
 
 
-class SignInPage extends Component{
+class SignUpPage extends Component{
   constructor(props){
     super(props);
+
+    this.state = {
+      isSignedIn: false
+    };
+
   }
 
   createUser = (params) =>{
@@ -14,8 +19,7 @@ class SignInPage extends Component{
     User
       .post(params)
       .then(({jwt})=>{
-        window.localStorage.createItem('jwt',jwt);
-
+        window.localStorage.setItem('jwt',jwt);
         this.props.history.push('/');
         onSignIn()
       })
@@ -24,7 +28,7 @@ class SignInPage extends Component{
 
   render(){
     return(
-      <div className='SignInPage'>
+      <div className='SignUpPage'>
         <h2>Sign In</h2>
         <SignUpForm onSubmit={this.createUser} />
       </div>
@@ -32,4 +36,4 @@ class SignInPage extends Component{
   }
 }
 
-export default SignInPage;
+export default SignUpPage;

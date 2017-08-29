@@ -7,7 +7,7 @@ function RoomDetails(props){
   return (
     <div className='RoomDeatils'>
           <div>
-            <strong>{title}</strong>
+            <strong key='123'>{title}</strong>
             <div>Game: {game}</div>
             <div>Username: {creater}</div>
             <div>Activity: {activity}</div>
@@ -15,7 +15,7 @@ function RoomDetails(props){
             <div>Devs Limit: {users.length}/{limit}</div>
             <hr/>
             <h3>Users</h3>
-              <ul className='RoomUsersList'>
+              <ul key="12" className='RoomUsersList'>
                 {
                   users.map(
                     user =>(

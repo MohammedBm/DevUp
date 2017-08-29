@@ -10,9 +10,17 @@ class Api::V1::UsersController < Api::ApplicationController
       render json: @user
     end
 
-    # BUG: need to be fixed, dosent create jwt token when user is created
     def create
       @user = User.new user_params
+      if @user.save
+        puts 'user saved'
+        render json: {
+          jwt: encode_token({
+            id: @user.id,
+            full_name: @user.full_name,
+            username: @user.username
+          })
+        }
       else
         puts 'user not save'
       end
@@ -31,6 +39,13 @@ class Api::V1::UsersController < Api::ApplicationController
         :email,
         :password_digest
       )
-
     end
+    def encode_token(payload = {}, exp = 24.hours.from_now)
+      # jwt tokens once issued cannot be revoked therefore it's best practice
+      # to give an expiration date. `exp` will act as the expiration in the payload.
+      # We send it as a timestamp.
+      payload[:exp] = exp.to_i
+      JWT.encode(payload, Rails.application.secrets.secret_key_base)
+    end
+
 end

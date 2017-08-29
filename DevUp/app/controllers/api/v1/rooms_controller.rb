@@ -17,9 +17,11 @@ class Api::V1::RoomsController < Api::ApplicationController
     @room.user = current_user
 
     if @room.save
-      render json: {id: @room.id,title: @room.title, creater: @room.creater, activity: @room.activity, game: @room.game, time: @room.time, limit: @room.limit}
+      room_user = RoomUser.new user: current_user , room: @room
+      room_user.save!
+      render json: {id: @room.id,title: @room.title, creawter: @room.creater, activity: @room.activity, game: @room.game, time: @room.time, limit: @room.limit}
     else
-      render json: {errors: @room.errors.full_messages}
+      render json: {errors: @room.errors.full_messages}, status: 200
     end
   end
 

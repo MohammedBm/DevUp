@@ -1,4 +1,5 @@
 class Api::V1::CommentsController < Api::ApplicationController
+  before_action :authenticate_user!
 
   def create
     @room = Room.find params[:room_id]

@@ -10,4 +10,11 @@ class RoomUser < ApplicationRecord
     end
   end
 
+  validates :room_id, uniqueness:  {
+    scope: :user_id,
+    message: ->(object, data) do
+      "You've already joined this #{data[:attribute].downcase}"
+    end
+  }
+
 end

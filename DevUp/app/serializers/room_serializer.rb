@@ -4,6 +4,7 @@ class RoomSerializer < ActiveModel::Serializer
   belongs_to :user, key: :author
   has_many :comments
   has_many :users
+  has_many :room_users
 
  class UserSerializer < ActiveModel::Serializer
    attributes :id, :full_name, :username
@@ -19,4 +20,10 @@ class RoomSerializer < ActiveModel::Serializer
      object.user&.username
    end
  end
+
+  class RoomUserSerializer < ActiveModel::Serializer
+    attributes :id, :user_id
+  end
+
+
 end

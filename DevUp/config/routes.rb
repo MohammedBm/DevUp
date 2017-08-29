@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       end
       resources :tokens, only: [:create]
       resources :users, only: %i[new show create index]
+      resources :room_users, only: %i[create destroy index]
+
     end
   end
 

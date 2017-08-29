@@ -45,7 +45,6 @@ class App extends Component {
   render() {
     const {currentUser} = this;
     const {isSignedIn} = this.state;
-
     return (
       <Router>
       <div className="App">
@@ -65,20 +64,20 @@ class App extends Component {
           }
           {
             isSignedIn
-            ? ([
-              <span>⭕️</span>
-            ]) : (
-              <Link to='/sign_up'>Sign Up</Link>
+            ? (
+              <span key='3333'>⭕️</span>
+            ) : (
+              <Link key='232' to='/sign_up'>Sign Up</Link>
             )
           }
         </nav>
-        <h1>DevsUp</h1>
+        <h1>DevUp</h1>
 
         <Switch>
           <Route exact path='/' component={RoomIndexPage} />
           <Route exact path='/sign_in' render={(props) => <SignInPage {...props} onSignIn={this.signIn}/>}/>
 
-          <Route exact path='/sign_up' render={(props) => <SignUpPage {...props} onSignUp={this.signIn}/>}/>
+          <Route exact path='/sign_up' render={(props) => <SignUpPage {...props} onSignIn={this.signIn}/>}/>
 
           <AuthRoute exact isAuthenticated={isSignedIn} path='/rooms/new' component={RoomNewPage} />
           <Route exact path='/rooms/:id' isAuthenticated={isSignedIn} component={RoomShowPage} />
