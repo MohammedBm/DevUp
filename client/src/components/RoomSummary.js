@@ -9,13 +9,11 @@ class RoomSummary extends Component {
     this.state={...props, userId:this.currentUser.id}
   }
 
-
   handleJoin = (room)=>{
     console.log('handleJoin');
     console.log(room);
     this.setState({...room})
   }
-
 
   get currentUser() {
     const jwt = window.localStorage.getItem('jwt');
@@ -40,7 +38,7 @@ render(){
     }
   }
 
-  return(
+    return(
 
     <div className='RoomSummary'>
         <div className="card " style={style.div}>

@@ -29,7 +29,7 @@ class SignUpPage extends Component{
   render(){
     return(
       <div className='SignUpPage'>
-        <h2>Sign In</h2>
+        <h2>Sign Up</h2>
         <SignUpForm onSubmit={this.createUser} />
       </div>
     )

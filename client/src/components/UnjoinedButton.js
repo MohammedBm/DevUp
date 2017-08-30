@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Button, Popover, PopoverTitle, PopoverContent } from 'reactstrap';
 import {Room, Member} from '../utls/requests'
 import jwtDecode from 'jwt-decode';
 
@@ -6,6 +7,9 @@ import jwtDecode from 'jwt-decode';
 class UnjoinedButton extends Component{
   constructor(props){
     super(props)
+    this.state = {
+      popoverOpen: false
+    };
 
   }
 
@@ -21,7 +25,6 @@ class UnjoinedButton extends Component{
 
   }
 
-
   get currentUser() {
     const jwt = window.localStorage.getItem('jwt');
     return jwt && jwtDecode(jwt);
@@ -30,7 +33,7 @@ class UnjoinedButton extends Component{
   render(){
     const {UnjoinRoom} = this
     return(
-      <a  onClick={UnjoinRoom} className="card-link btn-outline-primary btn">Leave!</a>
+      <button  onClick={UnjoinRoom} className="card-link btn-outline-danger btn">Leave!</button>
     )
   }
 

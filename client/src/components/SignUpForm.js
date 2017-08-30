@@ -17,30 +17,36 @@ function SignUpForm (props) {
   }
 
   return(
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor='full_name'>Full Name</label> <br />
-        <input id='full_name' name='full_name' />
+    <form onSubmit={handleSubmit} >
+      <div className='input-group'>
+        <label className='input-group-addon'htmlFor='full_name'>Full Name</label> <br />
+        <input className='form-control LimitQuarter' placeholder='Hope Austin' id='full_name' name='full_name' />
       </div>
-      <div>
-        <label htmlFor='username'>Username</label> <br />
-        <input id='username' name='username' />
+      <br />
+
+      <div className='input-group'>
+        <label htmlFor='username' className='input-group-addon'>Username</label> <br />
+        <input id='username' placeholder='LoremIpsumol' name='username' className='form-control LimitQuarter' />
       </div>
-      <div>
-        <label htmlFor='email'>Email</label> <br />
-        <input id='email' name='email' />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label> <br />
-        <input type='password' id='password' name='password' />
-      </div>
-      <div>
-        <label htmlFor='password_confirmation'>Password</label> <br />
-        <input type='password' id='password_confirmation' name='password_confirmation' />
+      <br />
+      <div className='input-group'>
+        <label htmlFor='email' className='input-group-addon'>Email</label> <br />
+        <input id='email'  placeholder='example@example.com'name='email' className='form-control LimitQuarter' />
       </div>
 
+      <br />
+      <div className='input-group'>
+        <label htmlFor='password' className='input-group-addon'>Password</label> <br />
+        <input  placeholder='password gose here' type='password'id='password' name='password' className='form-control LimitQuarter' />
+      </div>
+      <br/>
+      <div className='input-group'>
+        <label htmlFor='password_confirmation' className='input-group-addon'>Password</label> <br />
+        <input type='password' className='form-control LimitQuarter 'id='password_confirmation' name='password_confirmation' />
+      </div>
+      <br/>
       <div>
-        <input type='submit' value='Sign Up'/>
+        <input className='btn btn-outline-primary'type='submit' value='Sign Up'/>
       </div>
 
     </form>

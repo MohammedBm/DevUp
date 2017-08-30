@@ -16,18 +16,19 @@ function SignInForm (props) {
   }
   return(
     <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor='email'>Email</label> <br />
-        <input type='email' id='email' name='email' />
+      <div className='input-group'>
+        <label htmlFor='email' className='input-group-addon'>Email</label> <br />
+        <input id='email'  placeholder='example@example.com'name='email' className='form-control LimitQuarter' />
+      </div>
+      <br/>
+      <div className='input-group'>
+        <label htmlFor='password' className='input-group-addon'>Password</label>
+        <input  placeholder='password gose here' type='password'id='password' name='password' className='form-control LimitQuarter' />
       </div>
 
+      <br />
       <div>
-        <label htmlFor='password'>Password</label> <br />
-        <input type='password' id='password' name='password' />
-      </div>
-
-      <div>
-        <input type='submit' value='Sign In'/>
+        <input className='btn btn-outline-primary'type='submit' value='Sign In'/>
       </div>
 
     </form>

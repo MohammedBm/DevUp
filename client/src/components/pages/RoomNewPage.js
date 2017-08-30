@@ -28,10 +28,13 @@ class RoomNewPage extends Component {
   }
 
   render() {
+    const {errors} = this.state
     return (
       <div className='RoomNewPage'>
-        <h1>{this.state.errors}</h1>
         <h2>New Room</h2>
+        <ul>
+          {errors.map(error => <li key={error}>{error}</li>)}
+        </ul>
         <RoomForm onSubmit={this.createRoom}/>
       </div>
     )

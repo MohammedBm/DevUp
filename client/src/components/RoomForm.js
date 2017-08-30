@@ -43,12 +43,13 @@ function RoomForm(props) {
         <input id='time' name='time'/>
       </div>
       <div>
-        <label htmlFor = 'limit'>Devs Count</label><br />
+        <label htmlFor = 'limit'>Player Count</label><br />
         <input type = 'number'id='limit' name='limit'/>
       </div>
 
+      <br />
       <div>
-        <input type='submit' value='Submit'/>
+        <input className = 'btn-outline-primary btn'type='submit' value='Submit'/>
       </div>
 
     </form>
