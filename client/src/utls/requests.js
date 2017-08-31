@@ -5,7 +5,6 @@ function getJwt(){
   return window.localStorage.getItem('jwt')
 }
 
-
 const Room = {
   getRooms() {
     return fetch(
@@ -64,7 +63,6 @@ const Token = {
     ).then(res=>res.json())
   }
 }
-
 
 const User = {
   post(params){

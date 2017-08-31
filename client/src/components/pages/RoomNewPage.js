@@ -14,8 +14,7 @@ class RoomNewPage extends Component {
     Room
       .post(room)
       .then(
-        (room) =>{ // { id: 2, title: "" }
-          // id = 2
+        (room) =>{
           if(room.id){
            this.props.history.push(`/rooms/${room.id}`)
          }else{
@@ -23,8 +22,6 @@ class RoomNewPage extends Component {
          }
       }
     )
-
-
   }
 
   render() {

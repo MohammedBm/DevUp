@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 
 class Header extends Component {
-
-  render(){
+  render() {
     return (
       <nav className="navbar">
         <div className="navbar-brand">
@@ -14,4 +13,5 @@ class Header extends Component {
     )
   }
 }
+
 export default Header

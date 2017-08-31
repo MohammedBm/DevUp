@@ -14,4 +14,5 @@ function AuthRoute (props){
       }} />
   );
 }
+
 export default AuthRoute;

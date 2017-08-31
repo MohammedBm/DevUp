@@ -1,31 +1,30 @@
 import React from 'react';
 
-function CommentForm (props){
-  const {onSubmit = ()=>{}} = props;
+function CommentForm(props) {
+  const {
+    onSubmit = () => {}
+  } = props;
 
-  const handleSubmit = event =>{
+  const handleSubmit = event => {
     event.preventDefault();
     const {currentTarget} = event;
 
     const formData = new FormData(currentTarget);
     onSubmit({
-      comments:{
+      comments: {
         body: formData.get('body')
       }
     })
   }
 
-  return(
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor = 'body'>Body</label><br />
-        <input id='body' name='body'/>
+  return (
+    <form className='form-inline' onSubmit={handleSubmit}>
+      <div className='form-group'>
+        <textarea id='body' className='form-control' name='body' placeholder='Comment Here'/>
       </div>
-
       <div>
-        <input type='submit' value='Submit'/>
+        <input type='submit' className='btn btn-primary submitComment' value='Submit'/>
       </div>
-
     </form>
   )
 }

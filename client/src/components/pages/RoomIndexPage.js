@@ -12,12 +12,12 @@ class RoomIndexPage extends Component {
     Room.getRooms().then(rooms => this.setState({rooms}))
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div className='RoomIndexPage'>
 
         <h2>Rooms</h2>
-        <RoomList rooms={this.state.rooms} />
+        <RoomList rooms={this.state.rooms}/>
       </div>
     )
   }

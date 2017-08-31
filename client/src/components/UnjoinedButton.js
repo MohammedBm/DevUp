@@ -1,28 +1,23 @@
 import React, {Component} from 'react'
-import { Button, Popover, PopoverTitle, PopoverContent } from 'reactstrap';
+import {Button, Popover, PopoverTitle, PopoverContent} from 'reactstrap';
 import {Room, Member} from '../utls/requests'
 import jwtDecode from 'jwt-decode';
 
-
-class UnjoinedButton extends Component{
-  constructor(props){
+class UnjoinedButton extends Component {
+  constructor(props) {
     super(props)
     this.state = {
       popoverOpen: false
     };
-
   }
 
-  UnjoinRoom = ()=>{
+  UnjoinRoom = () => {
     const {roomUserId} = this.props
 
-    Member
-      .delete(roomUserId)
-      .then((room)=>{
-        // this.props.history.push('/');
-        this.props.handleJoin(room);
-        })
-
+    Member.delete(roomUserId).then((room) => {
+      // this.props.history.push('/');
+      this.props.handleJoin(room);
+    })
   }
 
   get currentUser() {
@@ -30,13 +25,12 @@ class UnjoinedButton extends Component{
     return jwt && jwtDecode(jwt);
   }
 
-  render(){
+  render() {
     const {UnjoinRoom} = this
-    return(
-      <button  onClick={UnjoinRoom} className="card-link btn-outline-danger btn">Leave!</button>
+    return (
+      <button onClick={UnjoinRoom} className="card-link btn-outline-danger btn">Leave!</button>
     )
   }
-
 }
 
 export default UnjoinedButton;

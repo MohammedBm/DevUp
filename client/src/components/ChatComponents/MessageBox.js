@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import trim from 'trim';
 
 class MessageBox extends Component {
-
   constructor(props){
     super(props);
     this.onChange = this.onChange.bind(this);
@@ -11,10 +10,11 @@ class MessageBox extends Component {
       message: ''
     };
   }
+
   onChange(e){
-      this.setState({
-        message: e.target.value
-      });
+    this.setState({
+      message: e.target.value
+    });
   }
   onKeyup(e){
     if(e.keyCode === 13 && trim(e.target.value) !== ''){
@@ -25,13 +25,15 @@ class MessageBox extends Component {
       });
     }
   }
+
   render() {
     return (
       <form>
         <textarea
-            className="textarea"
+            className="form-control messageInput"
             placeholder="Type a message"
-            cols="100"
+            rows='3'
+            cols='1000'
             onChange={this.onChange}
             onKeyUp={this.onKeyup}
             value={this.state.message}>

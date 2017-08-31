@@ -2,20 +2,16 @@ import React, {Component} from 'react';
 import {Token,User} from '../../utls/requests';
 import SignUpForm from '../SignUpForm'
 
-
 class SignUpPage extends Component{
   constructor(props){
     super(props);
-
     this.state = {
       isSignedIn: false
     };
-
   }
 
   createUser = (params) =>{
     const {onSignIn = () => {} } = this.props
-
     User
       .post(params)
       .then(({jwt})=>{
@@ -24,7 +20,6 @@ class SignUpPage extends Component{
         onSignIn()
       })
   }
-
 
   render(){
     return(

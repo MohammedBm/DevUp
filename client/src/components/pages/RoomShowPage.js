@@ -13,13 +13,12 @@ class RoomShowPage extends Component{
 
   createComment = (comment) => {
     const id = this.state.room.id
-    Room
-        .postComment(id,comment)
-        .then((room)=>
-        this.setState({room:room})
-      )
+    Room  
+      .postComment(id,comment)
+      .then((room)=>
+      this.setState({room:room})
+    )
   }
-
 
   componentDidMount(){
     const {id} = this.props.match.params;
@@ -32,11 +31,9 @@ class RoomShowPage extends Component{
     return(
       <div className='RoomShowPage'>
         <RoomDetails db={this.props.firebase} {...room}/>
-        <CommentForm onSubmit = {this.createComment} />
       </div>
     )
   }
-
 }
 
 export default RoomShowPage;

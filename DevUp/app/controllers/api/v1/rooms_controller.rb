@@ -1,6 +1,6 @@
 class Api::V1::RoomsController < Api::ApplicationController
   before_action :find_room, only: [:show]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, expect: [:index]
 
   def index
     @rooms = Room.order(created_at: :desc).includes(:user)

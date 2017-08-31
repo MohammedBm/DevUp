@@ -6,13 +6,11 @@ function RoomList (props){
 
   return (
     <div className='RoomList'>
-      <div className='row'>
       {
         rooms.map(
           room => <RoomSummary key={room.id} {...room}/>
         )
       }
-    </div>
     </div>
   )
 }

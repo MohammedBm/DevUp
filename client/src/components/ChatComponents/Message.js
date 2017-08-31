@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 
 class Message extends Component {
-
-  render(){
+  render() {
     return (
       <div>
         <strong>{this.props.username}</strong>:{this.props.message}
@@ -10,4 +9,5 @@ class Message extends Component {
     )
   }
 }
+
 export default Message
