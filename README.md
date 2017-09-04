@@ -6,7 +6,7 @@ DevUp is a application for team mangment. In this website other developer who ar
 To use this application you can clone the repo via this command in your terminal
 
 ```shell
-https://github.com/MohammedBm/DevUp.git
+git clone https://github.com/MohammedBm/DevUp.git
 ```
 
 This command will clone the repo in github to your machine.
